@@ -6,7 +6,7 @@ Basic operations with numpy, pandas and matplotlib
 '''bash
 lise =np.array(range(0,10))
 print(lise)
-bash'''
+'''
 ### arange
 0'dan 20'ye kadar ikişer artış
 '''bash
