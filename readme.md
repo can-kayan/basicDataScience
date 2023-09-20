@@ -2,20 +2,21 @@
 Basic operations with numpy, pandas and matplotlib
 ## Numpy
 ### rang
-0'dam 10'a kadar sayı üretimi
+Number generation from 0 to 10
+
 ```bash
 lise =np.array(range(0,10))
 print(lise)
 ```
 ### arange
-0'dan 20'ye kadar ikişer artış
+Increments of two from 0 to 20
 ```bash
 liste=np.arange(0,20,2)
 print(liste)
 ```
 
 ### zeos --> 
-değerleri 0 olan matrix veya liste üretme 
+Generating a matrix or list with values of 0
 ```bash
 zr1=np.zeros(5)
 zr2=np.zeros((2,5))
@@ -23,7 +24,7 @@ print(zr2)
 ```
 
 ### ones
-değerleri 1 olan matrix veya liste üretir
+produces matrix or list with values 1
 ```bash
 one1=np.ones(5)
 one2=np.ones((5,4))
@@ -31,34 +32,34 @@ print(one2)
 ```
 
 ### linspace
-0'dan 10'a kadar eşit aralıklı 30 adet sayı üret
+Generate 30 evenly spaced numbers from 0 to 10
 ```bash
 lin=np.linspace(0,10,30)
 print(lin)
 ```
 
 ### eye
-belirtilen sayıya göre birim matrix oluşturur
+Creates an identity matrix based on the specified number
 ```bash
 ey=np.eye(3)
 print(ey)
 ```
 ### random & randn
- belirtilen sayı kadar reel kapsamlı değer üretir > çift sayı var ise matirx & rastgele sayı üretir
+ Generates real scoped values up to the specified number > If there is an even number, it produces matirx & random numbers
  ```bash
 rndn1=np.random.randn(8)
 rndn2=np.random.randn(5,5)
 print(rndn2)
 ```
 ### randint
-randint(başlangıç,bitiş,adet) tam sayı üretir
+randint(start,end,number) produces integer
 ```bash
 rndnt1=np.random.randint(1,10)
 rndnt2=np.random.randint(1,20,3)
 print(rndnt1)
 ```
 ### reshape
-diziden matrix oluşturur (satır,sütun)
+Creates matrix from array (row, column)
 ```bash
 matrixs=rndnt2.reshape(3,1)
 ### print(matrixs)
@@ -68,7 +69,7 @@ matrixs=rndnt2.reshape(3,1)
 maxx=rndnt2.max()
 ```
 ### argmax & argmin
-en büyük değerin index numarası & en küçük değerin index numarası
+index number of the largest value and index number of the smallest value
 ```bash
 argmaxx=rndnt2.argmax()
 argminn=rndnt2.argmin()
@@ -76,8 +77,8 @@ print(argminn)
 print(argmaxx)
 ```
 ### shape
-oluşturulan matrikin satır sütün bilgisini verir
-''bash
+Provides row and column information of the created matrix
+```bash
 rowAndColumn=matrixs.shape
 print(rowAndColumn)
 ```
@@ -144,20 +145,20 @@ listIndex=["Pazartesi","Sali","Carsamba"]
 DataFrames=pd.DataFrame(dicValue,listIndex)
 print(DataFrames)
 ```
-### -->Boş veri satırını silme
+### --> Delete empty data row
 ```bash
 print(DataFrames.dropna(axis=0))
 ```
-### --> Boş veri sütun silme
+### --> Delete empty data col
 ```bash
 print(DataFrames.dropna(axis=1))
 ```
-### -->2'den fazla boş değer olanları sil (Row & Column)
+### -->Delete those with more than 2 empty values (Row and Column)
 ```bash
 ### print(DataFrames.dropna(axis=0,thresh=2))
 ### print(DataFrames.dropna(axis=1,thresh=2))
 ```
-### -->Boş verilere değer ataması ister str ister int
+### -->Assigning values to empty data can be either str or int.
 ```bash
 print(DataFrames.fillna("-"))
 ```
@@ -177,7 +178,7 @@ print(groupByObject.count())
 ```bash
 print(f"{groupByObject.max()}\n{groupByObject.min()}")
 ```
-### -->ortalama
+### -->Average
 ```bash
 print(f"{groupByObject.mean(1)}")
 ```
@@ -191,7 +192,7 @@ print(groupByObject.describe())
 ```
 
 ### Concatenation
-DataFrame Birleştirme
+DataFrame Merge
 ```bash
 dictionOne={"Isim":["Ahmet","Mehmet","Zeynep","Atil"],
             "Spor":["kosu","yuzme","hentbol","basketbol"],
@@ -213,7 +214,7 @@ print(pd.concat([oneFrame,twoFrame,treFrame],axis=0))
 ```
 
 ### Merge
-Kaynaştırma , İlişkili tabloları birleştirme
+Fusing, Joining related tables
 ```bash
 dictionOne={"Isim":["Ahmet","Mehmet","Zeynep","Atil"],
             "Kalori":[100,200,300,400]}
@@ -223,7 +224,7 @@ mergeOneData=pd.DataFrame(dictionOne)
 mergeTwoData=pd.DataFrame(dictionTwo)
 print(f"{mergeOneData}\n{mergeTwoData}")
 ```
-### -->Birleştirme
+### -->Merge
 ```bash
  print(pd.merge(mergeOneData,mergeTwoData,on="Isim"))
 
@@ -233,29 +234,29 @@ priceDictionary={"Departman":["Yazılım","Yazılım","Pazarlama","Pazarlama","H
 dictionaryDataFrame=pd.DataFrame(priceDictionary)
 ```
 ### --> Unique
-tekrarlayan kelimeleri 1 kere yazdırır 
+prints repetitive words once
 ```bash
 print(dictionaryDataFrame["Departman"].unique())
 ```
 ###  --> NUnique
-farklı kelime sayısını verir
+gives different word count
 ```bash
 print(dictionaryDataFrame["Departman"].nunique())
 ```
 ### --> value_counts
-kelimelerin tekrar sayısını verir
+Returns the number of repetitions of words
 ```bash
 print(dictionaryDataFrame["Departman"].value_counts())
 ```
 ### --> apply
-üzerinde işlem yapma
+do not act on
 ```bash
 def calculate(maas):
     return maas*0.66
 print(dictionaryDataFrame["Maas"].apply(calculate))
 ```
 ### --> isnull
-boş değerler true dolular false
+empty values are true, filled values are false
 ```bash
  print(dictionaryDataFrame["Departman"].isnull())
 ```
@@ -297,7 +298,7 @@ figureAxes.set_ylabel("y eksen")
 figureAxes.set_title("Başlık")
 ```
 
-### --> İç içe grafik
+### -->nested chart
 ```bash
 figure=plt.figure()
 figureAxes1=figure.add_axes([0.1,0.1,0.8,0.8]) ### ([xKonum,yKonum,xBoyut,yBoyut])
@@ -323,7 +324,7 @@ plt.tight_layout()### içe içe geçmeyi önler
 
 ```
 
-### --> Veri başlığı ekleme
+### --> Add a data header
 ```bash
 newFigure=plt.figure()
 newAxes=newFigure.add_axes([0.1,0.1,0.9,0.9])
