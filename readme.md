@@ -3,13 +3,13 @@ Basic operations with numpy, pandas and matplotlib
 ## Numpy
 ### rang
 0'dam 10'a kadar sayı üretimi
-'''bash
+```bash
 lise =np.array(range(0,10))
 print(lise)
 '''
 ### arange
 0'dan 20'ye kadar ikişer artış
-'''bash
+```
 liste=np.arange(0,20,2)
 print(liste)
 bash'''
