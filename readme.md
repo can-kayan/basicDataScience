@@ -1,7 +1,7 @@
 # About
 Basic operations with numpy, pandas and matplotlib
 ## Numpy
-### rang
+### range
 Number generation from 0 to 10
 
 ```bash
